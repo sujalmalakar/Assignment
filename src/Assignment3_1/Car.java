@@ -1,4 +1,8 @@
+
+package Assignment3_1;
+
 public class Car {
+
     private double speed;
     private double gasolineLevel;
     private String typeName;
@@ -37,9 +41,14 @@ public class Car {
         gasolineLevel = 100;
     }
 
+    public void useGasoline(double amount) {
+        gasolineLevel = Math.max(0, gasolineLevel - amount);
+    }
+
     public void accelerate() {
         if (gasolineLevel > 0) {
             speed += 10;
+            useGasoline(1);
         } else {
             speed = 0;
         }
@@ -82,3 +91,4 @@ public class Car {
         return cruiseControlOn;
     }
 }
+
